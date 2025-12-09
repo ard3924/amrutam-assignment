@@ -2,6 +2,7 @@ import { useState } from "react";
 import Seo from "../components/Seo";
 
 const faqData = [
+  
   {
     question: "What is Amrutam?",
     answer:
@@ -69,7 +70,7 @@ export default function Faq() {
                 <span className="text-[#2F2F2F] font-medium text-lg">
                   {item.question}
                 </span>
-                <span className="text-2xl text-[#2F5E3A]">
+                <span className="text-2xl text-[#2F5E3A] transition-transform duration-300">
                   {activeIndex === index ? "−" : "+"}
                 </span>
               </button>
@@ -83,8 +84,8 @@ export default function Faq() {
           ))}
         </div>
 
-        {/* CTA */}
-        <button className="mt-12 bg-[#326A3B] text-white text-lg px-8 py-3 rounded-lg shadow hover:bg-[#2B5733] transition">
+        {/* CTA - Updated button style */}
+        <button className="mt-12 bg-[#2F6C34] text-white text-lg px-8 py-3 rounded-lg shadow hover:bg-[#255427] transition">
           See More
         </button>
       </section>

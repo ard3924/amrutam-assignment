@@ -1,24 +1,27 @@
 import Seo from "../components/Seo";
+import drprerna from "../assets/drprerna.jpg";
+import whatotherdoctorsaresaying from "../assets/whatotherdoctorsaresaying.jpg";
+import drmariumroy from "../assets/drmariumroy.jpg";
 
 const testimonials = [
   {
     name: "Dr. Pooja Deshmukh",
     degree: "BAMS",
-    image: "/images/doctor1.png", // replace with actual asset
+    image: drprerna, 
     rating: 5,
     text: `"Amrutam’s formulations stay true to the ancient wisdom of Ayurveda. Their authentic, chemical–free products help restore balance and promote holistic well–being. I often recommend them to my patients seeking natural healing."`,
   },
   {
     name: "Dr. Rajesh Iyer",
     degree: "Ayurvedic Practitioner",
-    image: "/images/doctor2.png",
+    image: whatotherdoctorsaresaying, 
     rating: 4,
     text: `"Amrutam beautifully bridges the gap between traditional Ayurveda and modern wellness. Their high–quality ingredients and ethical practices make them a trustworthy choice for those looking to embrace a healthier lifestyle."`,
   },
   {
     name: "Dr. Ananya Sharma",
     degree: "BAMS",
-    image: "/images/doctor3.png",
+    image: drmariumroy, 
     rating: 5,
     text: `"As an Ayurvedic doctor, I appreciate Amrutam’s commitment to purity and efficacy. Their herbal blends are thoughtfully crafted, ensuring maximum benefits for mind and body. I've personally seen positive results in my patients using their products."`,
   },

@@ -1,11 +1,32 @@
-// src/pages/Home.jsx
 import Seo from "../components/Seo";
+import { useState } from "react"; 
 import doctorrightimg from "../assets/doctorrightimg.png";
-// import drmariumroy from "../assets/drmariumroy.jpg";
+import drmariumroy from "../assets/drmariumroy.jpg"; 
 import drprerna from "../assets/drprerna.jpg";
 import whatotherdoctorsaresaying from "../assets/whatotherdoctorsaresaying.jpg";
+import featured from "../assets/featured.png"; 
+
+const homeFaqData = [
+  {
+    question: "What is Amrutam?",
+    answer:
+      "Amrutam is a trusted platform connecting Ayurvedic experts with people seeking holistic healthcare solutions. Join our growing community of doctors to share your expertise, grow your practice, and make a lasting impact.",
+  },
+  {
+    question: "How does Amrutam help me grow as a practitioner?",
+    answer:
+      "Amrutam enables doctors to expand their reach through online consultations, smart wallet, flexible scheduling options, and engagement tools like forum and feedback.",
+  },
+  {
+    question: "How do I become a part of Amrutam Doctor?",
+    answer:
+      "Simply complete the onboarding steps — referral code, registration, KYC verification, and start consulting patients.",
+  },
+];
 
 export default function Home() {
+  const [activeFaqIndex, setActiveFaqIndex] = useState(0);
+
   return (
     <>
       <Seo
@@ -30,7 +51,7 @@ export default function Home() {
                 Connect with more patients, set your own schedule, and grow
                 your Ayurvedic practice effortlessly.
               </p>
-              <button className="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#2f6c34] text-white text-sm font-semibold shadow-sm hover:bg-[#255427]">
+              <button className="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#2f6c34] text-white text-sm font-semibold shadow-sm hover:bg-[#255427] transition">
                 Join Now
               </button>
 
@@ -60,19 +81,22 @@ export default function Home() {
                 alt="Doctors"
                 className="relative z-10 max-w-sm w-full rounded-[40px] object-cover"
               />
-              {/* round icons */}
+              {/* round icons
               <div className="absolute -right-2 top-10 w-14 h-14 rounded-full bg-[#f6d777] flex items-center justify-center">
-                {/* yoga icon placeholder */}
-                <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
+                <i className="fa-solid fa-om text-[#2f6c34] text-2xl" />
               </div>
               <div className="absolute -bottom-4 right-10 w-14 h-14 rounded-full bg-[#f6d777] flex items-center justify-center">
-                <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
+                <i className="fa-solid fa-calendar text-[#2f6c34] text-2xl" />
               </div>
+              <div className="absolute left-0 bottom-16 w-14 h-14 rounded-full bg-[#f6d777] flex items-center justify-center">
+                <i className="fa-solid fa-mortar-pestle text-[#2f6c34] text-2xl" />
+              </div> */}
             </div>
           </section>
+          <hr className="border-[#f0e0c3]" />
 
-          {/* ============== FEATURED ============== */}
-          <section className="py-10 border-t border-[#f0e0c3]">
+          {/* ============== FEATURED (Logo Strip) ============== */}
+          <section className="py-10">
             <h2 className="text-xl md:text-2xl font-semibold text-center text-[#215427]">
               Featured
             </h2>
@@ -80,25 +104,16 @@ export default function Home() {
               Recognized and celebrated by leading publications – Amrutam in
               the spotlight!
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-6 md:gap-10">
-              {[
-                "THE TIMES OF INDIA",
-                "YOURSTORY",
-                "TRAVELER",
-                "Livingetc",
-                "GQ",
-                "VOGUE",
-                "Forbes 30",
-              ].map((name) => (
-                <div
-                  key={name}
-                  className="h-8 flex items-center justify-center px-4 text-[10px] md:text-xs text-[#5a5246]"
-                >
-                  {name}
-                </div>
-              ))}
+            {/* Using the provided featured.png image */}
+            <div className="mt-6 flex justify-center items-center">
+              <img
+                src={featured}
+                alt="Featured Logos"
+                className="max-w-4xl h-auto opacity-70"
+              />
             </div>
           </section>
+          <hr className="border-[#f0e0c3]" />
 
           {/* ============== WHY DOCTORS CHOOSE US ============== */}
           <section className="py-12 md:py-16">
@@ -112,12 +127,9 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Instant FREE 5-Mins Call */}
+            {/* Feature 1: Instant FREE 5-Mins Call */}
             <div className="grid md:grid-cols-[1.4fr,1fr] gap-10 items-center mb-16">
               <div className="relative h-64 md:h-72">
-                <div className="absolute left-4 top-10 w-16 h-16 rounded-full bg-[#f6d777] flex items-center justify-center">
-                  <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
-                </div>
                 {/* background shape */}
                 <div className="absolute left-0 right-10 top-16 h-40 bg-[#f9e5b8] rounded-[48px]" />
                 {/* call UI cards */}
@@ -163,7 +175,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Forum for Meaningful Connections */}
+            {/* Feature 2: Forum for Meaningful Connections */}
             <div className="grid md:grid-cols-[1fr,1.3fr] gap-10 items-center mb-16">
               <div>
                 <h3 className="text-xl font-semibold text-[#215427] mb-3">
@@ -180,10 +192,8 @@ export default function Home() {
 
               {/* forum cards */}
               <div className="relative h-72 md:h-80">
-                <div className="absolute right-6 top-6 w-16 h-16 rounded-full bg-[#f6d777] flex items-center justify-center">
-                  <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
-                </div>
                 <div className="absolute inset-x-6 top-10 h-40 bg-[#f9e5b8] rounded-[48px]" />
+                {/* Simplified forum card stack */}
                 <div className="absolute left-0 bottom-6 w-40 h-64 rounded-[32px] bg-white shadow-md" />
                 <div className="absolute right-0 bottom-2 w-[260px] rounded-2xl bg-white shadow-md p-4 text-[11px] text-[#3c352a]">
                   <p className="text-xs font-semibold text-[#215427] mb-1">
@@ -203,14 +213,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Choose Your Session Mode + Smart Wallet */}
+            {/* Feature 3: Choose Your Session Mode + Feature 4: Smart Wallet */}
             <div className="grid md:grid-cols-2 gap-14 mb-16">
               {/* session mode */}
-              <div className="grid md:grid-cols-[1.1fr,1fr] gap-6 items-center">
+              <div className="grid gap-6 items-center">
                 <div className="relative h-64">
-                  <div className="absolute left-4 top-8 w-16 h-16 rounded-full bg-[#f6d777] flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
-                  </div>
                   <div className="absolute inset-x-2 top-14 h-40 bg-[#f9e5b8] rounded-[48px]" />
                   <div className="absolute left-4 top-16 w-[260px] rounded-2xl bg-white shadow-md p-4 text-[11px]">
                     <p className="text-xs text-[#7c6a54] mb-3">
@@ -218,13 +225,13 @@ export default function Home() {
                     </p>
                     <div className="flex gap-2 text-xs">
                       <button className="flex-1 py-2 rounded-full border border-[#dad0b8] bg-white">
-                        Free Call <span className="text-[10px]">₹15/Min</span>
+                        Free Call
                       </button>
                       <button className="flex-1 py-2 rounded-full border border-[#2f6c34] bg-[#e0f0e2] text-[#215427] font-semibold">
-                        Video <span className="text-[10px]">₹15/Min</span>
+                        Video
                       </button>
                       <button className="flex-1 py-2 rounded-full border border-[#dad0b8] bg-white">
-                        Chat <span className="text-[10px]">₹15/Text</span>
+                        Chat
                       </button>
                     </div>
                   </div>
@@ -233,8 +240,6 @@ export default function Home() {
                       Hi, Dr. Prerna, here are my details:
                     </p>
                     <p>Name: Geetanjali Shah</p>
-                    <p>Age: 34</p>
-                    <p>Gender: Female</p>
                     <p>Concern: Immunity</p>
                   </div>
                 </div>
@@ -253,7 +258,7 @@ export default function Home() {
               </div>
 
               {/* smart wallet */}
-              <div className="grid md:grid-cols-[1fr,1.1fr] gap-6 items-center">
+              <div className="grid gap-6 items-center">
                 <div>
                   <h3 className="text-xl font-semibold text-[#215427] mb-3">
                     Smart Wallet
@@ -266,9 +271,6 @@ export default function Home() {
                 </div>
 
                 <div className="relative h-64">
-                  <div className="absolute right-6 top-8 w-16 h-16 rounded-full bg-[#f6d777] flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
-                  </div>
                   <div className="absolute inset-x-4 top-14 h-40 bg-[#f9e5b8] rounded-[48px]" />
                   <div className="absolute left-6 bottom-4 w-[260px] rounded-2xl bg-white shadow-md p-4 text-[11px]">
                     <p className="text-xs text-[#7c6a54] mb-2">
@@ -277,7 +279,7 @@ export default function Home() {
                     <p className="text-lg font-semibold text-[#215427] mb-3">
                       ₹12,000.00
                     </p>
-                    <button className="px-4 py-2 rounded-full bg-[#2f6c34] text-white text-[11px] font-semibold">
+                    <button className="px-4 py-2 rounded-full bg-[#2f6c34] text-white text-[11px] font-semibold hover:bg-[#255427] transition">
                       Request Withdrawal
                     </button>
                   </div>
@@ -296,12 +298,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Flexible Work Timing */}
+            {/* Feature 5: Flexible Work Timing */}
             <div className="grid md:grid-cols-[1.4fr,1fr] gap-10 items-center">
               <div className="relative h-64 md:h-72">
-                <div className="absolute left-4 top-8 w-16 h-16 rounded-full bg-[#f6d777] flex items-center justify-center">
-                  <div className="w-7 h-7 rounded-full bg-[#2f6c34]" />
-                </div>
                 <div className="absolute inset-x-8 top-14 h-44 bg-[#f9e5b8] rounded-[48px]" />
                 <div className="absolute left-8 top-18 w-[260px] rounded-2xl bg-white shadow-md p-4 text-[11px]">
                   <p className="text-xs font-semibold mb-1">Average Ratings</p>
@@ -315,13 +314,13 @@ export default function Home() {
                     Male–Female Infertility • 7 years of Experience
                   </p>
                   <div className="mt-3 flex gap-2 text-[10px]">
-                    <button className="flex-1 py-2 rounded-full border border-[#dad0b8]">
-                      Chat Consultation
+                    <button className="flex-1 py-2 rounded-full border border-[#dad0b8] hover:bg-[#f6f6f6] transition">
+                      Chat
                     </button>
-                    <button className="flex-1 py-2 rounded-full border border-[#dad0b8]">
-                      Video Consultation
+                    <button className="flex-1 py-2 rounded-full border border-[#dad0b8] hover:bg-[#f6f6f6] transition">
+                      Video
                     </button>
-                    <button className="flex-1 py-2 rounded-full border border-[#dad0b8]">
+                    <button className="flex-1 py-2 rounded-full border border-[#dad0b8] hover:bg-[#f6f6f6] transition">
                       Instant Call
                     </button>
                   </div>
@@ -340,10 +339,11 @@ export default function Home() {
               </div>
             </div>
           </section>
+          <hr className="border-[#f0e0c3]" />
 
           {/* ============== JOIN OUR CIRCLE OF CARE ============== */}
-          <section className="py-12 md:py-16 border-t border-[#f0e0c3]">
-            <div className="text-center mb-8">
+          <section className="py-12 md:py-16">
+            <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-semibold text-[#215427]">
                 Join Our Circle of Care
               </h2>
@@ -352,8 +352,9 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-[1.2fr,1fr] gap-10 mb-10">
-              <div className="space-y-4 text-sm">
+            <div className="grid md:grid-cols-[1.2fr,1fr] gap-10 items-start">
+              {/* LEFT: STEP CARDS */}
+              <div className="space-y-4">
                 {[
                   {
                     title: "Step 1: Get your referral code",
@@ -374,53 +375,56 @@ export default function Home() {
                 ].map((step) => (
                   <div
                     key={step.title}
-                    className="rounded-2xl border border-[#d1c9ae] bg-[#fff7e3] px-4 py-3"
+                    // Using styles similar to JoinNow.jsx for polish
+                    className="rounded-2xl border border-[#D1C7AA] bg-[#FFF7E4] px-5 py-4 shadow-[0_8px_16px_rgba(0,0,0,0.03)]"
                   >
-                    <p className="font-semibold text-[#215427]">
+                    <p className="text-sm font-semibold text-[#2F5E3A]">
                       {step.title}
                     </p>
-                    <p className="mt-1 text-[#5e5344]">{step.desc}</p>
+                    <p className="mt-1 text-[13px] text-[#5C5C5C]">
+                      {step.desc}
+                    </p>
                   </div>
                 ))}
               </div>
 
-              <div className="relative h-72">
-                <div className="absolute inset-x-4 top-10 h-44 bg-[#f9e5b8] rounded-[48px]" />
-                <div className="absolute inset-x-8 top-12 rounded-[32px] bg-white shadow-md p-4">
-                  <div className="w-full h-40 rounded-2xl bg-[#d4cbb0] mb-4" />
-                  <div className="grid grid-cols-2 gap-4 text-[11px]">
-                    <div>
-                      <p className="font-semibold mb-1">Your Name</p>
-                      <p>Vikas Kumar</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Your Contact Number</p>
-                      <p>8743414476</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Your Email</p>
-                      <p>vikass@gmail.com</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Message (Optional)</p>
-                      <p>I want to On-board as a Doctor</p>
+              {/* RIGHT: Mockup/Form - using simpler classes here */}
+              <div className="relative h-[360px] md:h-[420px]">
+                {/* soft blob background */}
+                <div className="absolute inset-x-4 top-8 h-56 md:h-64 bg-[#F6DEAB] rounded-[42px]" />
+                <div className="absolute inset-x-8 top-12 rounded-[32px] bg-white border border-[#D9CFB3] shadow-[0_18px_40px_rgba(0,0,0,0.08)] overflow-hidden">
+                  <div className="w-full h-40 rounded-t-2xl bg-[#D8C9AA]" />
+                </div>
+                {/* FOREGROUND FORM CARD (modal) - simplified for home preview */}
+                <div className="absolute left-8 right-4 md:left-10 md:right-10 bottom-0 translate-y-6 md:translate-y-8">
+                  <div className="rounded-2xl md:rounded-3xl bg-[#FFFDF6] border border-[#D9CFB3] shadow-[0_18px_40px_rgba(0,0,0,0.16)] px-6 py-5 md:px-7 md:py-6">
+                    <h2 className="text-lg md:text-xl font-semibold text-[#2F5E3A] mb-4">
+                      Become An Amrutam Doctor
+                    </h2>
+                    <div className="flex justify-end">
+                      <button
+                        type="button"
+                        className="px-6 py-2.5 rounded-md bg-[#2F5E3A] text-white text-sm font-semibold shadow hover:bg-[#264B30] transition"
+                      >
+                        Send Message
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* tabs + phones */}
-            <div className="flex flex-col items-center gap-8">
+            {/* Sub-section: Tabs + Phones */}
+            <div className="flex flex-col items-center gap-8 mt-12">
               <div className="flex flex-wrap justify-center gap-3 text-sm">
                 {["Consultations", "Payment withdrawal", "Schedule"].map(
                   (tab, i) => (
                     <button
                       key={tab}
-                      className={`px-6 py-2 rounded-full border text-sm ${
+                      className={`px-6 py-2 rounded-full border text-sm transition ${
                         i === 0
                           ? "bg-[#2f6c34] text-white border-[#2f6c34]"
-                          : "bg-transparent text-[#215427] border-[#d2c9b1]"
+                          : "bg-transparent text-[#215427] border-[#d2c9b1] hover:bg-[#e0f0e2]"
                       }`}
                     >
                       {tab}
@@ -436,17 +440,19 @@ export default function Home() {
                       <h3 className="text-sm font-semibold text-[#215427]">
                         {heading}
                       </h3>
+                      {/* Placeholder box updated with cleaner class names */}
                       <div className="mx-auto w-40 h-80 rounded-[32px] bg-[#e1dfd4] shadow-md" />
                     </div>
                   )
                 )}
               </div>
 
-              <button className="mt-4 mb-2 inline-flex items-center justify-center px-10 py-3 rounded-lg bg-[#2f6c34] text-white text-sm font-semibold shadow-sm hover:bg-[#255427]">
+              <button className="mt-4 mb-2 inline-flex items-center justify-center px-10 py-3 rounded-lg bg-[#2f6c34] text-white text-sm font-semibold shadow-sm hover:bg-[#255427] transition">
                 Join Now
               </button>
             </div>
           </section>
+          <hr className="border-[#f0e0c3]" />
 
           {/* ============== TESTIMONIALS + FAQ SHORT ============== */}
           <section className="py-12 md:py-16">
@@ -465,75 +471,83 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {/* Testimonial Cards - using the structure from Testimonials.jsx with mock data */}
+            <div className="grid md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
               {[
-                "Dr. Pooja Deshmukh, BAMS",
-                "Dr. Rajesh Iyer, Ayurvedic Practitioner",
-                "Dr. Ananya Sharma, BAMS",
-              ].map((name) => (
+                { name: "Dr. Pooja Deshmukh, BAMS", image: drprerna, text: "“Amrutam’s formulations stay true to ancient Ayurvedic wisdom. Their herbal blends are thoughtfully crafted, and I recommend them to my patients seeking natural healing.”" },
+                { name: "Dr. Rajesh Iyer, Ayurvedic Practitioner", image: drmariumroy, text: "“Amrutam beautifully bridges the gap between traditional Ayurveda and modern wellness. Their high–quality ingredients and ethical practices make them a trustworthy choice.”" },
+                { name: "Dr. Ananya Sharma, BAMS", image: whatotherdoctorsaresaying, text: "“As an Ayurvedic doctor, I appreciate Amrutam’s commitment to purity and efficacy. Their herbal blends ensure maximum benefits for mind and body.”" },
+              ].map((item, i) => (
                 <div
-                  key={name}
-                  className="rounded-2xl bg-[#ffe5aa] px-5 py-5 text-sm text-[#3c352a]"
+                  key={i}
+                  className="bg-[#F9E7B1] p-6 rounded-xl shadow-md text-left" // Style from Testimonials.jsx
                 >
-                  <p className="font-semibold mb-2">{name}</p>
-                  <p className="text-xs leading-relaxed">
-                    “Amrutam’s formulations stay true to ancient Ayurvedic
-                    wisdom. Their herbal blends are thoughtfully crafted, and I
-                    recommend them to my patients seeking natural healing.”
+                  {/* Avatar + Name */}
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h3 className="font-semibold text-[#2F2F2F] text-sm">
+                        {item.name}
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  {/* Review */}
+                  <p className="mt-4 text-[#5C5C5C] leading-relaxed text-[13px]">
+                    {item.text}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* FAQ strip */}
+            {/* FAQ strip - now using accordion logic */}
             <div className="bg-[#fff3d9] rounded-3xl border border-[#e2d5bc] px-6 py-8">
               <h2 className="text-2xl md:text-3xl font-semibold text-[#215427] text-center mb-2">
                 Frequently Asked Questions
               </h2>
-              <p className="text-sm text-[#7c6a54] text-center mb-6">
+              <p className="text-sm text-[#7c6a54] text-center mb-8">
                 Find quick answers to common questions to help you navigate the
                 app and its features easily.
               </p>
 
-              <div className="space-y-5 text-sm text-[#3c352a]">
-                {[
-                  "What is Amrutam?",
-                  "How does Amrutam help me grow as a practitioner?",
-                  "How do I become a part of Amrutam Doctor?",
-                  "What is Amrutam Global as a platform?",
-                  "What documents do I need to provide?",
-                  "Is there a fee to join Amrutam?",
-                ].map((q, i) => (
-                  <div
-                    key={q}
-                    className="border-b border-[#e2d5bc] pb-3 flex items-center justify-between"
-                  >
-                    <div>
-                      <p className="font-medium text-[15px]">{q}</p>
-                      {i === 0 && (
-                        <p className="mt-1 text-xs text-[#7c6a54] max-w-3xl">
-                          Amrutam is a trusted platform connecting Ayurvedic
-                          experts with people seeking holistic healthcare
-                          solutions. Join our growing community of doctors to
-                          share your expertise, grow your practice, and make a
-                          lasting impact.
-                        </p>
-                      )}
-                    </div>
-                    <span className="text-xl text-[#7c6a54]">
-                      {i === 0 ? "–" : "+"}
-                    </span>
+              <div className="space-y-3 text-sm text-[#3c352a] max-w-4xl mx-auto">
+                {homeFaqData.map((item, index) => (
+                  <div key={index} className="border-b border-[#e2d5bc] pb-3">
+                    <button
+                      className="w-full flex justify-between items-center py-2"
+                      onClick={() =>
+                        setActiveFaqIndex(activeFaqIndex === index ? null : index)
+                      }
+                    >
+                      <span className="font-medium text-[15px] text-[#2F2F2F] text-left">
+                        {item.question}
+                      </span>
+                      <span className="text-xl text-[#7c6a54] ml-4">
+                        {activeFaqIndex === index ? "−" : "+"}
+                      </span>
+                    </button>
+
+                    {activeFaqIndex === index && (
+                      <p className="mt-1 text-xs text-[#5e5344] leading-relaxed pr-8 pb-1">
+                        {item.answer}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 flex justify-center">
-                <button className="px-8 py-3 rounded-lg bg-[#2f6c34] text-white text-sm font-semibold">
+              <div className="mt-8 flex justify-center">
+                <button className="px-8 py-3 rounded-lg bg-[#2f6c34] text-white text-sm font-semibold shadow-sm hover:bg-[#255427] transition">
                   See More
                 </button>
               </div>
             </div>
           </section>
+          <hr className="border-[#f0e0c3]" />
 
           {/* ============== DOWNLOAD APP CTA ============== */}
           <section className="py-12 md:py-16">
@@ -547,28 +561,27 @@ export default function Home() {
                   practice—all in one place.
                 </p>
 
-                <div className="grid grid-cols-2 gap-3 text-xs mb-6">
+                {/* Bullet points updated to be list items instead of small boxes */}
+                <ul className="space-y-3 text-sm text-[#5e5344] mb-6">
                   {[
                     "Build Trust and Community with Forum",
                     "Earn More with Pay Per Conversation",
                     "Attract Patients with 5–Minute Free Call",
                     "Instant Access to Your Earnings with Wallet",
                   ].map((txt) => (
-                    <div
-                      key={txt}
-                      className="flex items-center gap-2 rounded-full border border-[#d5c7a7] bg-[#fbeac1] px-3 py-2"
-                    >
-                      <span className="w-6 h-6 rounded-full bg-[#2f6c34]" />
-                      <p className="text-[11px] text-[#4a4238]">{txt}</p>
-                    </div>
+                    <li key={txt} className="flex items-center gap-3 font-medium text-[#2f6c34]">
+                      <span className="text-lg">✓</span>
+                      <p className="text-sm text-[#4a4238]">{txt}</p>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                <div className="flex gap-3">
-                  <div className="w-32 h-10 rounded-lg bg-black text-white text-[11px] flex items-center justify-center">
+                {/* Store buttons placeholder (assumes images are in /public/images) */}
+                <div className="flex gap-4">
+                  <div className="w-36 h-12 rounded-lg bg-black text-white text-[11px] flex items-center justify-center cursor-pointer">
                     Google Play
                   </div>
-                  <div className="w-32 h-10 rounded-lg bg-black text-white text-[11px] flex items-center justify-center">
+                  <div className="w-36 h-12 rounded-lg bg-black text-white text-[11px] flex items-center justify-center cursor-pointer">
                     App Store
                   </div>
                 </div>

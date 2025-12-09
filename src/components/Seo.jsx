@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 export default function Seo({ title, description, keywords }) {
   useEffect(() => {
-    // Set document title
     document.title = `${title} | Amrutam Doctors`;
 
     // Update or create description tag
@@ -23,5 +22,5 @@ export default function Seo({ title, description, keywords }) {
 
   }, [title, description, keywords]);
 
-  return null; // Component renders nothing
+  return null; 
 }

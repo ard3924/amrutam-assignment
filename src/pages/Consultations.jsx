@@ -1,5 +1,10 @@
 import Seo from "../components/Seo";
 import { useState } from "react";
+import iphone1 from "../assets/iphone1.png";
+import iphone2 from "../assets/iphone2.png";
+import iphone3 from "../assets/iphone3.png";
+
+
 
 export default function Consultations() {
   const [activeTab, setActiveTab] = useState("Consultations");
